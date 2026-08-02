@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     WEB PORTOFOLIO - ANITA TIARA SANI
+     Tema: Teknologi Modern | Animasi 3D | Neon Gradasi |
+           Menu Gelap-Terang | Cuaca | Kontak & Sosmed Berbasis Menu
+     ============================================================ -->
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anita Tiara Sani | Portofolio Anak Informatika</title>
+    <meta name="description" content="Portofolio Anita Tiara Sani - Anak Informatika, Web Developer, App Developer, Data Analyst, Finance & Accounting Enthusiast.">
+    <meta name="theme-color" content="#070b16">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Anita Tiara Sani | Portofolio Anak Informatika">
+    <meta property="og:description" content="Portofolio Anita Tiara Sani - Anak Informatika, Web Developer, App Developer, Data Analyst, Finance & Accounting Enthusiast.">
+    <meta property="og:url" content="https://tiarasani-anita.github.io/portfolio-anita/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anita Tiara Sani | Portofolio Anak Informatika">
+    <meta name="twitter:description" content="Portofolio Anita Tiara Sani - Anak Informatika, Web Developer, App Developer, Data Analyst, Finance & Accounting Enthusiast.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300f0ff'/%3E%3Cstop offset='1' stop-color='%23ff2ec4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='56' height='56' rx='14' fill='%23070b16'/%3E%3Ctext x='32' y='41' font-family='monospace' font-size='26' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader">
+        <div class="preloader-inner">
+                        <span class="preloader-logo">&lt;/&gt;</span>
+            <div class="preloader-bar"><div class="preloader-fill"></div></div>
+            <p class="preloader-text">Memuat Portofolio...</p>
+            <p class="preloader-percent" id="preloader-percent">0%</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Background 3D -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="noise-overlay"></div>
+    <div id="cursor-glow"></div>
+
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- Section Navigation Dots -->
+    <nav class="section-dots" id="section-dots" aria-label="Navigasi section"></nav>
+
+    <!-- Scroll Percentage Bubble -->
+    <div class="scroll-percent" id="scroll-percent">0%</div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+<!-- ================= NAVBAR ================= -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon" aria-hidden="true"></span>
+                <span class="logo-text">Anita<span class="neon-dot">.</span>dev</span>
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Beranda</a></li>
+                <li><a href="#tentang" class="nav-link">Tentang</a></li>
+                <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
+                <li><a href="#proyek" class="nav-link">Proyek</a></li>
+                <li><a href="#sertifikasi" class="nav-link">Sertifikasi</a></li>
+                <li><a href="#pendidikan" class="nav-link">Pendidikan</a></li>
+
+                <!-- MENU DROPDOWN: KONTAK -->
+                <li class="menu-dropdown">
+                    <a href="#kontak" class="nav-link" aria-haspopup="true" aria-expanded="false">Kontak ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="mailto:anitatiara25@gmail.com"><span>📧</span> Email</a>
+                        <a href="#kontak"><span>📍</span> Indonesia</a>
+                    </div>
+                </li>
+
+                <!-- MENU DROPDOWN: SOSIAL MEDIA -->
+                <li class="menu-dropdown">
+                    <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Sosmed ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="https://github.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon github"><span class="ic-github"></span> GitHub</a>
+                        <a href="https://linkedin.com/in/anitatiara25" target="_blank" rel="noopener" class="dd-icon linkedin"><span class="ic-linkedin"></span> LinkedIn</a>
+                        <a href="https://instagram.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon instagram"><span class="ic-instagram"></span> Instagram</a>
+                        <a href="https://tiktok.com/@anitatiara25" target="_blank" rel="noopener" class="dd-icon tiktok"><span class="ic-tiktok"></span> TikTok</a>
+                        <a href="https://twitter.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon twitter"><span class="ic-twitter"></span> Twitter</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Widget Cuaca -->
+                <div class="weather-widget" id="weather-widget" title="Cuaca saat ini">
+                    <span class="weather-icon" id="weather-icon">🌤️</span>
+                    <div class="weather-info">
+                        <span class="weather-temp" id="weather-temp">--°C</span>
+                        <span class="weather-city" id="weather-city">Memuat...</span>
+                    </div>
+                </div>
+
+                
+                <!-- Live Clock WIB -->
+                <div class="live-clock" id="live-clock" title="Waktu lokal Anda">
+                    <span class="clock-icon">🕒</span>
+                    <span class="clock-time" id="clock-time">--:--:--</span>
+                </div>
+
+<!-- Toggle Tema -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Ganti tema gelap/terang">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <button class="hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting neon-text" id="hero-greeting"></p>
+
+            <!-- Nama: neon gradasi + lampu neon di tepi tanpa background -->
+            <h1 class="hero-name neon-edge">Anita Tiara Sani</h1>
+
+            <div class="hero-role">
+                <span class="type-text" id="type-text"></span><span class="type-cursor">|</span>
+            </div>
+
+            <p class="hero-desc">
+                Mahasiswa <strong>Teknik Informatika</strong> sejak 2024 yang gemar membangun aplikasi.
+                Tertarik di bidang <strong>front end, app development, rekayasa perangkat lunak
+                (software engineering)</strong>, dan mulai mendalami <strong>keamanan siber</strong> —
+                dipadukan dengan <strong>analisis data</strong> dan <strong>keuangan digital</strong>,
+                serta dunia <strong>investasi &amp; trading</strong>: emas, saham (termasuk luar negeri),
+                crypto, blockchain, <strong>Web3</strong>, dan <strong>Web4</strong>.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#proyek" class="btn btn-primary magnetic">🚀 Lihat Proyek</a>
+                <a href="#kontak" class="btn btn-outline magnetic">💬 Hubungi Saya</a>
+                <a href="cv.pdf" download class="btn btn-download magnetic">📄 Download CV</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span><span class="stat-label">Proyek Dibuat</span></div>
+                <div class="stat"><span class="stat-number" data-target="22">0</span><span class="stat-plus"></span><span class="stat-label">Tahun Usia</span></div>
+                <div class="stat"><span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span><span class="stat-label">Tahun di Teknologi</span></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator"><span>Scroll</span><div class="mouse"><div class="wheel"></div></div></div>
+    </section>
+
+    <!-- ================= TECH MARQUEE TICKER ================= -->
+    <div class="tech-marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <span>⚡ HTML5</span><span>🎨 CSS3</span><span>💛 JavaScript</span><span>🐍 Python</span><span>🗄️ SQL Database</span><span>📱 App Development</span><span>🛠️ Software Engineering</span><span>🔐 Cyber Security</span><span>📊 Data Analytics</span><span>💹 Finance &amp; Akuntansi</span><span>🥇 Investasi Emas</span><span>📈 Trading &amp; Saham</span><span>🪙 Crypto &amp; Blockchain</span><span>🔗 Web3 &amp; Web4</span>
+            </div>
+            <div class="marquee-group">
+                <span>⚡ HTML5</span><span>🎨 CSS3</span><span>💛 JavaScript</span><span>🐍 Python</span><span>🗄️ SQL Database</span><span>📱 App Development</span><span>🛠️ Software Engineering</span><span>🔐 Cyber Security</span><span>📊 Data Analytics</span><span>💹 Finance &amp; Akuntansi</span><span>🥇 Investasi Emas</span><span>📈 Trading &amp; Saham</span><span>🪙 Crypto &amp; Blockchain</span><span>🔗 Web3 &amp; Web4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TENTANG SAYA ================= -->
+    <section id="tentang" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Tentang <span class="gradient-text">Saya</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glass reveal gradient-border spotlight-card" data-tilt>
+                    <div class="avatar-frame"><div class="avatar"><span class="avatar-emoji">👩‍💻</span></div></div>
+                    <h3 class="about-name">Anita Tiara Sani</h3>
+                    <p class="about-title">Mahasiswa Teknik Informatika</p>
+                </div>
+
+                <div class="about-text reveal">
+                    <h3>Perjalanan Saya 🚀</h3>
+                    <p>
+                        Sejak <strong>SD</strong>, saya sudah tertarik pada dunia teknologi — mulai dari penasaran
+                        bagaimana komputer bekerja hingga belajar membuat program sederhana. Di usia
+                        <strong>22 tahun</strong>, saya menjadi mahasiswa <strong>Teknik Informatika sejak 2024</strong>
+                        dan terus mengasah keterampilan di bidang <strong>front end, app development,
+                        software engineering</strong>, serta mulai tertarik pada <strong>keamanan siber</strong>,
+                        ditambah <strong>analisis data</strong> dan <strong>keuangan digital</strong>.
+                    </p>
+                    <p>
+                        Saya percaya belajar tidak pernah berhenti. Setiap hari adalah kesempatan untuk
+                        menciptakan solusi teknologi yang bermanfaat — dan portofolio ini adalah bagian
+                        dari perjalanan saya yang terus berkembang.
+                    </p>
+                    <p>
+                        Di luar dunia kode, saya aktif mengembangkan diri di bidang <strong>investasi emas
+                        dan saham</strong> — termasuk memiliki <strong>saham di luar negeri</strong> —
+                        serta mendalami <strong>trading, crypto, blockchain, Web3, dan Web4</strong>
+                        sebagai masa depan keuangan digital.
+                    </p>
+                    <div class="about-points">
+                        <div class="point"><span class="point-icon">🔐</span> Tertarik Cyber Security</div>
+                        <div class="point"><span class="point-icon">📱</span> App Developer</div>
+                        <div class="point"><span class="point-icon">🛠️</span> Software Engineer</div>
+                        <div class="point"><span class="point-icon">🎨</span> Front End Developer</div>
+                        <div class="point"><span class="point-icon">📊</span> Data Analytics Enthusiast</div>
+                        <div class="point"><span class="point-icon">💹</span> Finance &amp; Akuntansi</div>
+                        <div class="point"><span class="point-icon">🥇</span> Investasi Emas</div>
+                        <div class="point"><span class="point-icon">📈</span> Trading &amp; Saham</div>
+                        <div class="point"><span class="point-icon">💱</span> Trading &amp; Pasar Modal</div>
+                        <div class="point"><span class="point-icon">🪙</span> Crypto &amp; Blockchain</div>
+                        <div class="point"><span class="point-icon">🔗</span> Web3 &amp; Web4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ================= LAYANAN ================= -->
+    <section id="layanan" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Layanan <span class="gradient-text">Saya</span></h2>
+                <div class="section-line"></div>
+                <p class="section-sub reveal">Solusi digital modern untuk kebutuhan Anda</p>
+            </div>
+
+            <div class="services-bento">
+                <div class="service-card glass reveal-stagger spotlight-card bento-wide" data-tilt>
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>Website modern, responsif, cepat, dan SEO-friendly — dari landing page hingga aplikasi web lengkap.</p>
+                    <div class="service-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>PHP</span></div>
+                </div>
+                <div class="service-card glass reveal-stagger spotlight-card" data-tilt>
+                    <div class="service-icon">📱</div>
+                    <h3>App Development</h3>
+                    <p>Pengembangan aplikasi mobile lintas platform dengan pengalaman pengguna yang mulus.</p>
+                    <div class="service-tags"><span>React Native</span><span>Flutter</span></div>
+                </div>
+                <div class="service-card glass reveal-stagger spotlight-card" data-tilt>
+                    <div class="service-icon">📊</div>
+                    <h3>Data Analytics</h3>
+                    <p>Transformasi data mentah menjadi insight bisnis melalui visualisasi dan analisis mendalam.</p>
+                    <div class="service-tags"><span>Python</span><span>SQL</span><span>Power BI</span></div>
+                </div>
+                <div class="service-card glass reveal-stagger spotlight-card" data-tilt>
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Desain antarmuka yang indah, intuitif, dan berfokus pada kebutuhan pengguna.</p>
+                    <div class="service-tags"><span>Figma</span><span>Prototype</span></div>
+                </div>
+                <div class="service-card glass reveal-stagger spotlight-card" data-tilt>
+                    <div class="service-icon">🔐</div>
+                    <h3>Cyber Security</h3>
+                    <p>Audit keamanan, enkripsi data, dan perlindungan aplikasi dari ancaman siber umum.</p>
+                    <div class="service-tags"><span>Audit</span><span>Enkripsi</span><span>Best Practice</span></div>
+                </div>
+                <div class="service-card glass reveal-stagger spotlight-card bento-wide" data-tilt>
+                    <div class="service-icon">💹</div>
+                    <h3>Financial &amp; Trading Tech</h3>
+                    <p>Solusi teknologi untuk investasi emas, saham lokal &amp; asing, crypto, blockchain, Web3, dan Web4.</p>
+                    <div class="service-tags"><span>Python</span><span>API</span><span>Web3</span><span>dApp</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ================= KEAHLIAN ================= -->
+    <section id="keahlian" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Keahlian <span class="gradient-text">Teknis</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🌐</span><span class="skill-name">HTML &amp; CSS</span><span class="skill-percent">92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">⚡</span><span class="skill-name">JavaScript</span><span class="skill-percent">83%</span></div><div class="skill-bar"><div class="skill-fill" data-width="83%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🐍</span><span class="skill-name">Python</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🎨</span><span class="skill-name">Front End Development</span><span class="skill-percent">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">📱</span><span class="skill-name">App Development</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🛠️</span><span class="skill-name">Software Engineering</span><span class="skill-percent">78%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🔐</span><span class="skill-name">Cyber Security</span><span class="skill-percent">70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">📊</span><span class="skill-name">Data Analytics</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">💹</span><span class="skill-name">Finance &amp; Akuntansi</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🗄️</span><span class="skill-name">SQL Database</span><span class="skill-percent">75%</span></div><div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🐙</span><span class="skill-name">Git &amp; GitHub</span><span class="skill-percent">80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">☁️</span><span class="skill-name">Cloud &amp; Deployment</span><span class="skill-percent">62%</span></div><div class="skill-bar"><div class="skill-fill" data-width="62%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🥇</span><span class="skill-name">Investasi Emas</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">📈</span><span class="skill-name">Trading &amp; Saham (Asing &amp; Lokal)</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🪙</span><span class="skill-name">Crypto &amp; Blockchain</span><span class="skill-percent">70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+                <div class="skill-card glass reveal spotlight-card" data-tilt><div class="skill-head"><span class="skill-icon">🔗</span><span class="skill-name">Web3 &amp; Web4</span><span class="skill-percent">70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERTIFIKASI ================= -->
+    <section id="sertifikasi" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Sertifikasi <span class="gradient-text">Resmi</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card glass reveal spotlight-card" data-tilt>
+                    <div class="cert-badge">🏆</div>
+                    <h3>Google Data Analytics</h3>
+                    <p>Sertifikasi resmi dari <strong>Google</strong> untuk keahlian analisis data, spreadsheet, SQL, dan visualisasi.</p>
+                    <span class="cert-tag">Google · Professional</span>
+                </div>
+                <div class="cert-card glass reveal spotlight-card" data-tilt>
+                    <div class="cert-badge">📜</div>
+                    <h3>Akuntansi &amp; Finance</h3>
+                    <p>Sertifikasi resmi di bidang akuntansi yang diakui <strong>NASBA</strong> (National Association of State Boards of Accountancy).</p>
+                    <span class="cert-tag">NASBA · CPE</span>
+                </div>
+                <div class="cert-card glass reveal spotlight-card" data-tilt>
+                    <div class="cert-badge">💼</div>
+                    <h3>Pelatihan Finance 2025</h3>
+                    <p>Pelatihan keuangan profesional 2025: literasi finansial, analisis laporan keuangan, dan budgeting.</p>
+                    <span class="cert-tag">Finance Training 2025</span>
+                </div>
+                <div class="cert-card glass reveal spotlight-card" data-tilt>
+                    <div class="cert-badge">💼</div>
+                    <h3>Administratif &amp; Office</h3>
+                    <p>Sertifikasi dari <strong>LinkedIn Learning</strong> untuk keterampilan administratif, manajemen waktu, dan produktivitas kerja.</p>
+                    <span class="cert-tag">LinkedIn Learning</span>
+                </div>
+                <div class="cert-card glass reveal spotlight-card" data-tilt>
+                    <div class="cert-badge">🖥️</div>
+                    <h3>Microsoft Office Specialist</h3>
+                    <p>Sertifikasi resmi <strong>Microsoft Office Specialist (MOS)</strong> untuk penguasaan Word, Excel, dan PowerPoint tingkat profesional.</p>
+                    <span class="cert-tag">Microsoft · MOS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ================= BLOG / ARTIKEL ================= -->
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Blog &amp; <span class="gradient-text">Artikel</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="1">
+                    <div class="blog-thumb blog-thumb-1"><span class="blog-emoji">🤖</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">Teknologi</span>
+                        <h3>Mengenal Kecerdasan Buatan di Era Modern</h3>
+                        <p>Bagaimana AI mengubah cara kita bekerja, belajar, dan mengambil keputusan di berbagai bidang.</p>
+                        <div class="blog-meta"><span>📅 Jan 2025</span><span>⏱ 5 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="1">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="2">
+                    <div class="blog-thumb blog-thumb-2"><span class="blog-emoji">🪙</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">Finance</span>
+                        <h3>Panduan Investasi Emas &amp; Saham untuk Pemula</h3>
+                        <p>Langkah awal membangun portofolio investasi: emas, saham lokal, hingga saham luar negeri.</p>
+                        <div class="blog-meta"><span>📅 Feb 2025</span><span>⏱ 7 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="2">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="3">
+                    <div class="blog-thumb blog-thumb-3"><span class="blog-emoji">🔗</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">Web3</span>
+                        <h3>Web3 &amp; Web4: Masa Depan Internet Terdesentralisasi</h3>
+                        <p>Eksplorasi blockchain, smart contract, dApp, dan bagaimana Web4 membawa internet ke level berikutnya.</p>
+                        <div class="blog-meta"><span>📅 Mar 2025</span><span>⏱ 6 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="3">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="4">
+                    <div class="blog-thumb blog-thumb-4"><span class="blog-emoji">📊</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">Data Science</span>
+                        <h3>Belajar Python untuk Data Science dari Nol</h3>
+                        <p>Panduan langkah demi langkah menguasai Python untuk analisis data, visualisasi, dan machine learning.</p>
+                        <div class="blog-meta"><span>📅 Apr 2025</span><span>⏱ 8 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="4">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="5">
+                    <div class="blog-thumb blog-thumb-5"><span class="blog-emoji">🎨</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">UI/UX</span>
+                        <h3>Tips Desain UI/UX yang Bikin Pengguna Betah</h3>
+                        <p>Prinsip desain antarmuka yang intuitif, estetis, dan membuat pengalaman pengguna terasa menyenangkan.</p>
+                        <div class="blog-meta"><span>📅 Mei 2025</span><span>⏱ 6 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="5">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal-stagger spotlight-card" data-tilt data-blog="6">
+                    <div class="blog-thumb blog-thumb-6"><span class="blog-emoji">💼</span></div>
+                    <div class="blog-body">
+                        <span class="blog-cat">Karir</span>
+                        <h3>Kiat Sukses Jadi Web Developer Profesional</h3>
+                        <p>Jalur karier, skill wajib, portofolio, dan strategi mendapatkan klien atau pekerjaan impian sebagai developer.</p>
+                        <div class="blog-meta"><span>📅 Jun 2025</span><span>⏱ 7 mnt</span></div>
+                        <button class="btn btn-small blog-detail-btn" data-blog="6">Baca Selengkapnya →</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+<!-- ================= PROYEK ================= -->
+    <section id="proyek" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Proyek <span class="gradient-text">Unggulan</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Proyek 1 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-1">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Front End</span>
+                        <h3 class="project-title">Aplikasi E-Learning</h3>
+                        <p class="project-desc">Platform belajar online interaktif dengan kuis, forum diskusi, dan pelacakan progres.</p>
+                        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="1">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-2">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Data Analytics</span>
+                        <h3 class="project-title">Dashboard Analisis Data</h3>
+                        <p class="project-desc">Visualisasi data penjualan dengan Python dan grafik interaktif untuk keputusan bisnis.</p>
+                        <div class="project-tech"><span>Python</span><span>Pandas</span><span>Chart.js</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="2">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-3">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"></rect><circle cx="9" cy="10" r="1.5"></circle><circle cx="15" cy="10" r="1.5"></circle><line x1="9" y1="16" x2="15" y2="16"></line></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">IoT &amp; Hardware</span>
+                        <h3 class="project-title">Sistem Monitoring Suhu</h3>
+                        <p class="project-desc">Alat IoT berbasis Arduino untuk memantau suhu ruangan dan notifikasi otomatis.</p>
+                        <div class="project-tech"><span>Arduino</span><span>C++</span><span>IoT</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="3">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 4 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-4">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="10" y1="18" x2="14" y2="18"></line></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">App Development</span>
+                        <h3 class="project-title">Aplikasi Catatan Keuangan</h3>
+                        <p class="project-desc">Aplikasi mobile kelola pemasukan, pengeluaran, dan laporan keuangan bulanan otomatis.</p>
+                        <div class="project-tech"><span>React Native</span><span>Firebase</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="4">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 5 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-5">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Web Development</span>
+                        <h3 class="project-title">Website Company Profile</h3>
+                        <p class="project-desc">Website profil modern dengan CMS sederhana dan optimasi SEO.</p>
+                        <div class="project-tech"><span>Bootstrap</span><span>PHP</span><span>MySQL</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="5">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 6 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-6">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"></path></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Software Engineering</span>
+                        <h3 class="project-title">Analisis Data Penjualan</h3>
+                        <p class="project-desc">Proyek analisis data end-to-end: cleaning, eksplorasi, hingga insight bisnis.</p>
+                        <div class="project-tech"><span>Python</span><span>SQL</span><span>Power BI</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="6">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 7 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-7">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line><circle cx="6" cy="15" r="1"></circle><circle cx="10" cy="15" r="1"></circle></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Sistem Informasi</span>
+                        <h3 class="project-title">Sistem Inventaris Barang</h3>
+                        <p class="project-desc">Manajemen inventaris dengan pencatatan stok, QR code, dan laporan real-time.</p>
+                        <div class="project-tech"><span>Laravel</span><span>MySQL</span><span>AJAX</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="7">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 8 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-8">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6.5L12 16l-6 3L7.5 12.5 3 8.5 9 8z"></path></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Front End</span>
+                        <h3 class="project-title">Aplikasi Budgeting Cerdas</h3>
+                        <p class="project-desc">Aplikasi pengelolaan anggaran pribadi dengan prediksi dan laporan keuangan.</p>
+                        <div class="project-tech"><span>Python</span><span>SQLite</span><span>Fintech</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="8">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 9 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-9">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Cyber Security</span>
+                        <h3 class="project-title">Sistem Auth &amp; Enkripsi</h3>
+                        <p class="project-desc">Aplikasi login aman dengan hashing password, enkripsi data, dan proteksi terhadap serangan umum.</p>
+                        <div class="project-tech"><span>Node.js</span><span>Crypto</span><span>JWT</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="9">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 10 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-10">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Software Engineering</span>
+                        <h3 class="project-title">Portofolio Web 3D Interaktif</h3>
+                        <p class="project-desc">Website portofolio dengan Three.js, animasi 3D real-time, dan tema gelap-terang.</p>
+                        <div class="project-tech"><span>Three.js</span><span>JS</span><span>CSS</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="10">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 11 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-7">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v6h.01"></path><path d="M6 22v-2"></path><path d="M18 2v2"></path><path d="M18 22v-6"></path><path d="M12 6v2"></path><path d="M12 16v2"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M12 4a4 4 0 0 0-4 4v8a4 4 0 0 0 8 0V8a4 4 0 0 0-4-4z"></path></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Financial Tech</span>
+                        <h3 class="project-title">Dashboard Crypto &amp; Saham Global</h3>
+                        <p class="project-desc">Pantau harga emas, crypto, saham lokal &amp; luar negeri, dan analisis tren pasar real-time.</p>
+                        <div class="project-tech"><span>Python</span><span>API</span><span>Web3</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="11">Lihat Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Proyek 12 -->
+                <div class="project-card glass reveal spotlight-card" data-tilt>
+                    <div class="project-thumb thumb-6">
+                        <svg class="thumb-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Blockchain</span>
+                        <h3 class="project-title">Dompet Web3 &amp; Kontrak Pintar</h3>
+                        <p class="project-desc">Eksplorasi aplikasi terdesentralisasi (dApp), dompet kripto, dan smart contract di Web3.</p>
+                        <div class="project-tech"><span>Solidity</span><span>Web3.js</span><span>dApp</span></div>
+                        <button class="btn btn-small project-detail-btn" data-project="12">Lihat Detail →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ================= TESTIMONI ================= -->
+    <section id="testimoni" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Kata <span class="gradient-text">Mereka</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="testimonial-carousel reveal" id="testimonial-carousel">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card glass gradient-border">
+                            <div class="testimonial-quote">❝</div>
+                            <p class="testimonial-text">"Anita sangat profesional dan cepat. Website yang dibuatnya modern, responsif, dan sesuai dengan kebutuhan bisnis kami."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">RS</div>
+                                <div>
+                                    <h4>Raka Saputra</h4>
+                                    <span>Founder · Startup Tech</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card glass gradient-border">
+                            <div class="testimonial-quote">❝</div>
+                            <p class="testimonial-text">"Kemampuan analisis datanya luar biasa! Insight yang disajikan sangat membantu pengambilan keputusan di perusahaan kami."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">DN</div>
+                                <div>
+                                    <h4>Dewi Nugraha</h4>
+                                    <span>Data Lead · E-Commerce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card glass gradient-border">
+                            <div class="testimonial-quote">❝</div>
+                            <p class="testimonial-text">"Aplikasi catatan keuangan yang dibuat Anita sangat membantu saya mengelola keuangan pribadi. UI-nya bersih dan mudah dipakai."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">BF</div>
+                                <div>
+                                    <h4>Bima Firmansyah</h4>
+                                    <span>Freelancer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card glass gradient-border">
+                            <div class="testimonial-quote">❝</div>
+                            <p class="testimonial-text">"Kolaborasi dengan Anita sangat menyenangkan. Ide kreatifnya dan pemahaman tentang Web3 &amp; blockchain melampaui ekspektasi."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">SL</div>
+                                <div>
+                                    <h4>Salsabila Lestari</h4>
+                                    <span>Project Manager · Fintech</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-arrow" id="testimonial-prev" aria-label="Sebelumnya">←</button>
+                    <div class="testimonial-dots" id="testimonial-dots"></div>
+                    <button class="testimonial-arrow" id="testimonial-next" aria-label="Berikutnya">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ================= PENDIDIKAN & PENGALAMAN ================= -->
+    <section id="pendidikan" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Pendidikan &amp; <span class="gradient-text">Pengalaman</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024 - Sekarang</span>
+                        <h3>Mahasiswa Teknik Informatika</h3>
+                        <p>Menempuh pendidikan Teknik Informatika sejak 2024 — memperdalam pemrograman, basis data, rekayasa perangkat lunak, dan keamanan siber.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2025</span>
+                        <h3>Pelatihan Finance</h3>
+                        <p>Mengikuti pelatihan keuangan 2025: literasi finansial, analisis laporan keuangan, dan budgeting profesional.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024</span>
+                        <h3>Trading &amp; Saham</h3>
+                        <p>Mulai trading &amp; investasi saham sejak 2024 — mendalami pasar modal, crypto, blockchain, Web3, dan Web4.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024</span>
+                        <h3>Sertifikasi Google Data Analytics</h3>
+                        <p>Lulus sertifikasi resmi Google dalam analisis data, spreadsheet, SQL, dan visualisasi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024</span>
+                        <h3>Sertifikasi Akuntansi NASBA</h3>
+                        <p>Mendapat sertifikasi resmi akuntansi yang diakui oleh National Association of State Boards of Accountancy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024</span>
+                        <h3>Sertifikasi Administratif LinkedIn</h3>
+                        <p>Bersertifikat dari LinkedIn Learning untuk keterampilan administratif, manajemen waktu, dan produktivitas kerja.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2024</span>
+                        <h3>Seminar Teknologi</h3>
+                        <p>Berkontribusi &amp; hadir di seminar nasional tentang perkembangan AI, data, dan keamanan siber.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">Sejak SD</span>
+                        <h3>Awal Ketertarikan pada Teknologi</h3>
+                        <p>Mulai tertarik pada teknologi sejak sekolah dasar — fondasi yang membawa saya ke dunia informatika.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">FAQ <span class="gradient-text">Sering Ditanya</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="faq-list reveal" id="faq-list">
+                <div class="faq-item glass">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Layanan apa saja yang Anda tawarkan?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Saya menawarkan web development, app development, analisis data, UI/UX design, audit keamanan siber, serta solusi financial tech &amp; trading (emas, saham, crypto, Web3).</p></div>
+                </div>
+                <div class="faq-item glass">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Berapa lama waktu pengerjaan proyek?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Tergantung kompleksitas. Landing page sekitar 3–7 hari, aplikasi web/mobile 2–6 minggu, dan proyek analisis data 1–3 minggu.</p></div>
+                </div>
+                <div class="faq-item glass">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Apakah menerima proyek magang atau kolaborasi?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Ya! Saya terbuka untuk proyek magang, kolaborasi riset, atau kontribusi ke open source. Silakan hubungi melalui form kontak.</p></div>
+                </div>
+                <div class="faq-item glass">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Teknologi apa yang biasa Anda gunakan?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>HTML/CSS/JS, Python, PHP, SQL, React Native, Laravel, Three.js, dan berbagai tools data seperti Pandas, Power BI, serta teknologi blockchain/Web3.</p></div>
+                </div>
+                <div class="faq-item glass">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Bagaimana cara memulai proyek dengan Anda?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Klik "Hubungi Saya" dan isi form dengan detail kebutuhan Anda. Saya akan merespons maksimal 1x24 jam untuk diskusi awal secara gratis.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ================= KONTAK ================= -->
+    <section id="kontak" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title neon-edge-sm">Hubungi <span class="gradient-text">Saya</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Mari Berkolaborasi 🤝</h3>
+                    <p>Saya terbuka untuk proyek, magang, atau diskusi seputar teknologi dan data.</p>
+                    <!-- Menu berbasis untuk kontak & sosial media -->
+                    <div class="menu-panel">
+                        <div class="menu-dropdown dd-block">
+                            <button class="menu-btn" type="button">📞 Kontak Saya ▾</button>
+                            <div class="dropdown-menu dd-static">
+                                <a href="mailto:anitatiara25@gmail.com"><span>📧</span> anitatiara25@gmail.com</a>
+                                <a href="#kontak"><span>📍</span> Indonesia</a>
+                            </div>
+                        </div>
+                        <div class="menu-dropdown dd-block">
+                            <button class="menu-btn" type="button">🌐 Media Sosial ▾</button>
+                            <div class="dropdown-menu dd-static">
+                                <a href="https://github.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon github"><span class="ic-github"></span> GitHub</a>
+                                <a href="https://linkedin.com/in/anitatiara25" target="_blank" rel="noopener" class="dd-icon linkedin"><span class="ic-linkedin"></span> LinkedIn</a>
+                                <a href="https://instagram.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon instagram"><span class="ic-instagram"></span> Instagram</a>
+                                <a href="https://tiktok.com/@anitatiara25" target="_blank" rel="noopener" class="dd-icon tiktok"><span class="ic-tiktok"></span> TikTok</a>
+                                <a href="https://twitter.com/anitatiara25" target="_blank" rel="noopener" class="dd-icon twitter"><span class="ic-twitter"></span> Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                <a href="cv.pdf" download class="btn btn-download btn-full magnetic" style="margin-top:14px;">📄 Download CV</a>
+                </div>
+
+                <form class="contact-form glass reveal gradient-border" id="contact-form">
+                    <div class="form-group"><input type="text" id="form-name" placeholder="Nama Anda" required></div>
+                    <div class="form-group"><input type="email" id="form-email" placeholder="Email Anda" required></div>
+                    <div class="form-group"><textarea id="form-message" rows="5" placeholder="Tulis pesan Anda..." required></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-full">Kirim Pesan 🚀</button>
+                    <p class="form-status" id="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MODAL DETAIL PROYEK ================= -->
+    <div id="project-modal-overlay"></div>
+    <div id="project-modal" role="dialog" aria-modal="true" aria-label="Detail Proyek">
+        <button class="modal-close" aria-label="Tutup">✕</button>
+        <div class="modal-body" id="modal-body"></div>
+    </div>
+
+    <!-- ================= MODAL BLOG / ARTIKEL ================= -->
+    <div id="blog-modal-overlay"></div>
+    <div id="blog-modal" role="dialog" aria-modal="true" aria-label="Detail Artikel">
+        <button class="modal-close" aria-label="Tutup">✕</button>
+        <div class="modal-body" id="blog-modal-body"></div>
+    </div>
+
+    <!-- ================= BACK TO TOP ================= -->
+    <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-logo">Anita<span class="neon-dot">.</span>dev</p>
+            <p class="footer-text">Dibuat dengan 💜 oleh <span class="gradient-text">Anita Tiara Sani</span> — Teknik Informatika</p>
+            <p class="footer-copy">© 2025 Anita Tiara Sani. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

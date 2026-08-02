@@ -1,0 +1,15 @@
+# Python scripts & temp (bukan bagian situs)
+*.py
+blocks.txt
+css_dump.txt
+TODO.md
+
+# OS / editor
+Thumbs.db
+.DS_Store
+*.swp
+
+# Surge
+.surge/
+surge-token.json
+
